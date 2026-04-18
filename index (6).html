@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nam'Nati — Soul on a Plate</title>
+<meta name="description" content="Nam'Nati is a proudly local fusion restaurant at Letshego Building, Zambezi Towers, Gaborone CBD. World-class fusion cuisine, catering & community."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#4a0e1c;
+  --brand-light:#fdf0f2;
+  --wa:#25D366;
+  --ff-head:'Playfair Display',serif;
+  --ff-body:'DM Sans',sans-serif;
+  --transition:0.3s ease;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);color:#1a1a1a;background:#fff;overflow-x:hidden}
+img{display:block;max-width:100%}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+a{text-decoration:none;color:inherit}
+
+/* ── UTILS ── */
+.container{max-width:1280px;margin:0 auto;padding:0 1.5rem}
+.brand-bg{background:var(--brand)}
+.brand-text{color:var(--brand)}
+.brand-border{border-color:var(--brand)}
+.section{padding:7rem 0 5rem}
+.section-tag{font-size:.65rem;font-weight:800;letter-spacing:.18em;color:var(--brand);opacity:.6;text-transform:uppercase;display:block;margin-bottom:.5rem}
+.section-title{font-family:var(--ff-head);font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:.9;color:#111;letter-spacing:-.03em}
+.accent{color:var(--brand)}
+.italic{font-style:italic}
+
+/* ── NAVBAR ── */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid #f1f1f1;
+  backdrop-filter:blur(12px);
+  transition:box-shadow var(--transition);
+}
+#navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;max-width:1280px;margin:0 auto;padding:0 1.5rem;
+}
+.nav-logo{display:flex;align-items:center;gap:.75rem;cursor:pointer}
+.nav-logo img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.nav-logo span{font-size:1.1rem;font-weight:900;letter-spacing:-.04em;color:var(--brand)}
+.nav-links{display:flex;gap:.25rem}
+.nav-links button{
+  padding:.5rem 1rem;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  border-radius:10px;color:#666;transition:all var(--transition);
+}
+.nav-links button:hover,.nav-links button.active{background:var(--brand);color:#fff}
+.nav-right{display:flex;align-items:center;gap:1.25rem}
+.nav-tel{font-size:.8rem;font-weight:700;color:#555;display:flex;align-items:center;gap:.4rem}
+.btn-wa{
+  background:var(--brand);color:#fff;padding:.6rem 1.25rem;border-radius:12px;
+  font-size:.65rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+  display:flex;align-items:center;gap:.4rem;transition:filter var(--transition);
+}
+.btn-wa:hover{filter:brightness(1.2)}
+.hamburger{display:none;padding:.5rem;color:var(--brand)}
+
+/* ── MOBILE MENU ── */
+#mobile-menu{
+  display:none;position:fixed;inset:0;z-index:90;background:#fff;
+  padding:5rem 2rem 2rem;flex-direction:column;gap:.5rem;
+}
+#mobile-menu.open{display:flex}
+#mobile-menu button{
+  font-family:var(--ff-head);font-size:2.2rem;font-weight:900;color:var(--brand);
+  text-align:left;padding:1rem 0;border-bottom:1px solid #f1f1f1;
+}
+.mob-contact{display:flex;align-items:center;gap:.75rem;color:var(--brand);margin-top:1.5rem;font-weight:700}
+.mob-wa{
+  background:var(--brand);color:#fff;padding:1.25rem;border-radius:16px;
+  font-size:1rem;font-weight:900;display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:1rem;
+}
+
+/* ── BUTTONS ── */
+.btn-primary{
+  background:var(--brand);color:#fff;padding:1rem 2.5rem;border-radius:16px;
+  font-size:.7rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.5rem;transition:filter var(--transition);
+  cursor:pointer;border:none;font-family:inherit;
+}
+.btn-primary:hover{filter:brightness(1.2)}
+.btn-outline{
+  border:2px solid var(--brand);color:var(--brand);padding:1rem 2.5rem;border-radius:16px;
+  font-size:.7rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.5rem;transition:all var(--transition);
+  cursor:pointer;background:none;font-family:inherit;
+}
+.btn-outline:hover{background:var(--brand);color:#fff}
+.btn-white{
+  background:#fff;color:var(--brand);padding:1rem 2.5rem;border-radius:14px;
+  font-size:.7rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.5rem;transition:background var(--transition);
+  cursor:pointer;border:none;font-family:inherit;
+}
+.btn-white:hover{background:#f5f5f5}
+
+/* ── HERO ── */
+#home{padding-top:7rem}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.4rem 1rem;border-radius:999px;background:rgba(74,14,28,.1);
+  font-size:.6rem;font-weight:900;letter-spacing:.15em;color:var(--brand);text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.hero-title{font-family:var(--ff-head);font-size:clamp(3.5rem,9vw,7.5rem);font-weight:900;line-height:.85;letter-spacing:-.04em;color:#111;margin-bottom:1.5rem}
+.hero-sub{font-size:1.05rem;color:#666;max-width:500px;line-height:1.7;font-weight:500;margin-bottom:2.5rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:4rem}
+
+/* ── STATS ── */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:4rem}
+.stat-card{background:#f8f8f8;border-radius:20px;padding:1.5rem;text-align:center}
+.stat-icon{color:var(--brand);margin-bottom:.5rem;display:flex;justify-content:center}
+.stat-val{font-weight:900;font-size:1.1rem;color:#111}
+.stat-sub{font-size:.7rem;color:#888;font-weight:600;margin-top:.2rem}
+
+/* ── HERO GRID ── */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:4rem}
+.hero-main{position:relative;height:480px;border-radius:36px;overflow:hidden}
+.hero-main img{width:100%;height:100%;object-fit:cover;transition:transform 1s ease}
+.hero-main:hover img{transform:scale(1.07)}
+.hero-main-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(74,14,28,.9) 0%, transparent 60%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:2.5rem;
+}
+.hero-main-overlay h3{font-family:var(--ff-head);font-size:2.2rem;color:#fff;font-weight:900;margin-bottom:.4rem}
+.hero-main-overlay p{color:rgba(255,255,255,.75);font-weight:500}
+.hero-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.hero-mini{border-radius:24px;overflow:hidden;border:4px solid #fff;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.hero-mini img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.hero-mini:hover img{transform:scale(1.07)}
+
+/* ── PRESS BADGE ── */
+.press-badge{
+  background:var(--brand);border-radius:28px;padding:3rem;
+  display:flex;align-items:center;gap:2rem;margin-bottom:4rem;
+  flex-wrap:wrap;
+}
+.press-quote{font-family:var(--ff-head);font-size:1.6rem;color:#fff;font-weight:700;flex:1;font-style:italic;line-height:1.3}
+.press-source{font-size:.65rem;font-weight:900;letter-spacing:.15em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:.75rem}
+
+/* ── GALLERY ── */
+.gallery-title{font-family:var(--ff-head);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--brand);letter-spacing:-.03em;text-align:center;margin-bottom:3rem}
+.masonry{columns:1;gap:1.5rem}
+.masonry-item{break-inside:avoid;border-radius:28px;overflow:hidden;margin-bottom:1.5rem;border:1px solid #f1f1f1;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.masonry-item img{width:100%;object-fit:cover;transition:transform .5s ease}
+.masonry-item:hover img{transform:scale(1.04)}
+
+/* ── MENU PAGE ── */
+.menu-tabs{display:flex;gap:.5rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
+.tab-btn{
+  padding:.65rem 1.5rem;border-radius:12px;font-size:.7rem;font-weight:900;
+  letter-spacing:.12em;text-transform:uppercase;transition:all var(--transition);
+  border:2px solid var(--brand);color:var(--brand);cursor:pointer;background:none;font-family:inherit;
+}
+.tab-btn.active{background:var(--brand);color:#fff}
+.menu-items{display:flex;flex-direction:column;gap:1rem}
+.menu-item{
+  display:flex;align-items:center;gap:1.25rem;background:#f8f8f8;
+  border-radius:20px;padding:1.4rem 1.5rem;transition:background var(--transition);
+}
+.menu-item:hover{background:rgba(74,14,28,.06)}
+.menu-icon{
+  width:42px;height:42px;background:var(--brand);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.1rem;
+}
+.menu-name{font-weight:900;color:#111;font-size:1rem;margin-bottom:.2rem}
+.menu-desc{font-size:.85rem;color:#777;font-weight:500}
+.menu-price{font-size:.7rem;font-weight:900;color:var(--brand);opacity:.5;margin-left:auto;flex-shrink:0}
+.menu-cta{background:var(--brand);border-radius:28px;padding:2.5rem;text-align:center;margin-top:2.5rem;color:#fff}
+.menu-cta h3{font-family:var(--ff-head);font-size:1.4rem;margin-bottom:.5rem}
+.menu-cta p{opacity:.7;font-size:.9rem;margin-bottom:1.5rem}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:4rem}
+.about-img-wrap{position:relative}
+.about-img-wrap img{border-radius:36px;width:100%;object-fit:cover;box-shadow:0 8px 40px rgba(0,0,0,.12)}
+.about-badge{
+  position:absolute;bottom:-1.5rem;left:-1.5rem;background:var(--brand);
+  border-radius:20px;padding:1.2rem 1.5rem;color:#fff;
+}
+.about-badge p:first-child{font-weight:900;font-size:1.2rem}
+.about-badge p:last-child{font-size:.75rem;opacity:.6}
+.about-text h2{margin-top:.5rem;margin-bottom:1.5rem}
+.about-text .body-text{font-size:1.05rem;color:#555;line-height:1.8;font-weight:500}
+.about-text .body-text+.body-text{margin-top:1rem}
+blockquote{border-left:4px solid var(--brand);padding-left:1.5rem;font-style:italic;color:#444;font-weight:600;margin-top:1.5rem;font-size:1rem}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem}
+.mission-card{background:#f8f8f8;border-radius:24px;padding:2rem}
+.mission-icon{color:var(--brand);font-size:1.5rem;margin-bottom:1rem}
+.mission-card h4{font-weight:900;font-size:1.15rem;color:#111;margin-bottom:.75rem}
+.mission-card p{color:#666;font-size:.9rem;line-height:1.7}
+.press-dark{background:#111;border-radius:28px;padding:3rem;text-align:center;color:#fff}
+.press-dark .tag{font-size:.6rem;font-weight:900;letter-spacing:.18em;color:#888;text-transform:uppercase;margin-bottom:1rem}
+.press-dark blockquote{border:none;padding:0;font-family:var(--ff-head);font-size:clamp(1.4rem,3vw,2rem);color:#fff;font-weight:700;max-width:600px;margin:0 auto 1rem}
+.press-dark .source{color:#888;font-size:.85rem}
+
+/* ── CATERING ── */
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem}
+.pkg-card{border-radius:24px;overflow:hidden;border:2px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.pkg-card.featured{border-color:var(--brand);box-shadow:0 8px 40px rgba(74,14,28,.15)}
+.pkg-badge{background:var(--brand);color:#fff;text-align:center;font-size:.65rem;font-weight:900;letter-spacing:.15em;padding:.5rem}
+.pkg-body{padding:2rem}
+.pkg-name{font-family:var(--ff-head);font-size:1.5rem;font-weight:900;color:#111;margin-bottom:.75rem}
+.pkg-desc{color:#666;font-size:.9rem;line-height:1.6;margin-bottom:1.5rem}
+.pkg-items{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem}
+.pkg-items li{display:flex;align-items:center;gap:.65rem;font-size:.85rem;font-weight:600;color:#444}
+.pkg-items li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--brand);flex-shrink:0}
+.cat-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cat-gallery-item{border-radius:16px;overflow:hidden;height:160px}
+.cat-gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.cat-gallery-item:hover img{transform:scale(1.08)}
+
+/* ── LOCATION ── */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.loc-info{position:sticky;top:6rem}
+.loc-info h2{margin-top:.5rem;margin-bottom:2.5rem}
+.loc-row{display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:2.5rem}
+.loc-icon{width:48px;height:48px;background:var(--brand);border-radius:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.1rem}
+.loc-label{font-weight:900;font-size:1.1rem;color:#111;margin-bottom:.4rem}
+.loc-value{color:#666;line-height:1.7;font-weight:500}
+.hours{display:flex;flex-direction:column;gap:.25rem}
+.hour-row{display:flex;justify-content:space-between;width:240px}
+.hour-row.closed{color:#ef4444}
+.hour-row strong{color:#111;font-weight:900}
+.loc-link{color:var(--brand);font-weight:900;font-size:.8rem;letter-spacing:.1em;display:flex;align-items:center;gap:.4rem;margin-top:.75rem;text-transform:uppercase}
+.loc-media{display:flex;flex-direction:column;gap:1.5rem}
+.loc-building{border-radius:36px;overflow:hidden;border:8px solid #fff;box-shadow:0 8px 40px rgba(0,0,0,.1)}
+.loc-building img{width:100%;height:420px;object-fit:cover;transition:transform 1s ease}
+.loc-building:hover img{transform:scale(1.04)}
+.loc-card{background:var(--brand);border-radius:28px;padding:2.5rem;color:#fff}
+.loc-card img{width:64px;height:64px;border-radius:50%;border:4px solid rgba(255,255,255,.2);object-fit:cover;margin-bottom:1.25rem}
+.loc-card h3{font-family:var(--ff-head);font-size:1.5rem;font-weight:700;font-style:italic;margin-bottom:.75rem}
+.loc-card p{color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:1.5rem;font-size:.95rem}
+
+/* ── FOOTER ── */
+footer{background:#111;color:#fff;padding:5rem 0 2.5rem}
+.footer-inner{text-align:center}
+.footer-inner img{width:60px;height:60px;border-radius:50%;margin:0 auto 1.5rem;border:2px solid rgba(255,255,255,.1);object-fit:cover}
+.footer-inner h4{font-family:var(--ff-head);font-size:2rem;font-weight:900;letter-spacing:-.04em;margin-bottom:.75rem}
+.footer-tagline{color:#888;max-width:320px;margin:0 auto 1rem;font-size:.85rem;line-height:1.6}
+.footer-address{color:#555;font-size:.75rem;margin-bottom:2.5rem}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-bottom:3rem}
+.footer-links button{color:#888;font-size:.65rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;transition:color var(--transition)}
+.footer-links button:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;opacity:.3;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.7rem;font-weight:700;letter-spacing:.1em}
+.footer-socials{display:flex;gap:1.5rem;font-size:1.1rem}
+
+/* ── FABS ── */
+.fab-group{position:fixed;bottom:1.5rem;right:1.5rem;z-index:80;display:flex;flex-direction:column;gap:.75rem;align-items:flex-end}
+.fab{
+  display:flex;align-items:center;gap:.5rem;padding:.9rem 1.4rem;border-radius:999px;
+  font-size:.65rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+  box-shadow:0 4px 24px rgba(0,0,0,.2);border:2px solid rgba(255,255,255,.2);
+  cursor:pointer;font-family:inherit;transition:transform var(--transition),filter var(--transition);
+}
+.fab:hover{transform:scale(1.06)}
+.fab-wa{background:var(--wa);color:#fff}
+.fab-nav{background:var(--brand);color:#fff}
+
+/* ── PAGE VIS ── */
+.page{display:none}
+.page.active{display:block}
+
+/* ── RESPONSIVE ── */
+@media(min-width:768px){
+  .masonry{columns:2}
+}
+@media(min-width:1024px){
+  .masonry{columns:3}
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-mini-grid{grid-template-columns:repeat(4,1fr)}
+  .hero-main{height:360px}
+  .about-grid{grid-template-columns:1fr}
+  .loc-grid{grid-template-columns:1fr}
+  .loc-info{position:static}
+  .packages-grid{grid-template-columns:1fr}
+  .mission-grid{grid-template-columns:1fr}
+  .cat-gallery{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .about-badge{bottom:-.5rem;left:.5rem}
+  .press-badge{flex-direction:column}
+}
+@media(max-width:640px){
+  .nav-links,.nav-right{display:none}
+  .hamburger{display:block}
+  .hero-mini-grid{grid-template-columns:repeat(2,1fr)}
+  .cat-gallery{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      <img src="images/461112096_122099159036542183_7089325650912782402_n (1).jpg" alt="Nam'Nati logo"/>
+      <span>NAM'NATI</span>
+    </div>
+    <div class="nav-links">
+      <button class="active" onclick="showPage('home')">HOME</button>
+      <button onclick="showPage('menu')">MENU</button>
+      <button onclick="showPage('about')">ABOUT</button>
+      <button onclick="showPage('location')">FIND US</button>
+      <button onclick="showPage('catering')">CATERING</button>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+26772488068" class="nav-tel">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        +267 72 488 068
+      </a>
+      <button class="btn-wa" onclick="openWA()">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WHATSAPP
+      </button>
+    </div>
+    <button class="hamburger" onclick="toggleMobile()">
+      <svg id="ham-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <button onclick="showPage('home');closeMobile()">HOME</button>
+  <button onclick="showPage('menu');closeMobile()">MENU</button>
+  <button onclick="showPage('about');closeMobile()">ABOUT</button>
+  <button onclick="showPage('location');closeMobile()">FIND US</button>
+  <button onclick="showPage('catering');closeMobile()">CATERING</button>
+  <div class="mob-contact">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+    +267 72 488 068
+  </div>
+  <button class="mob-wa" onclick="openWA()">
+    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WHATSAPP US
+  </button>
+</div>
+
+<!-- ═══ HOME PAGE ═══ -->
+<div id="page-home" class="page active">
+  <section id="home" class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem">
+        <div class="hero-tag">
+          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          KITCHEN POETRY · GABORONE CBD
+        </div>
+        <h1 class="hero-title">SOUL ON<br><span class="accent italic">A PLATE.</span></h1>
+        <p class="hero-sub" style="margin:0 auto 2.5rem">A proudly local fusion restaurant in the heart of Gaborone. <em>Nam'Nati</em> — "all of us together" — brings tradition, flavour, and community to your plate.</p>
+        <div class="hero-ctas" style="justify-content:center">
+          <button class="btn-primary" onclick="openWA()">BOOK VIA WHATSAPP ›</button>
+          <button class="btn-outline" onclick="showPage('menu')">VIEW MENU</button>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
+          <div class="stat-val">Fusion</div><div class="stat-sub">Cuisine style</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="stat-val">CBD</div><div class="stat-sub">Letshego Building</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+          <div class="stat-val">Youth</div><div class="stat-sub">Empowerment mission</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="stat-val">Catering</div><div class="stat-sub">Corporate &amp; events</div>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-main">
+          <img src="images/630810124_122193319148542183_7945028571354026245_n.jpg" alt="Interior"/>
+          <div class="hero-main-overlay">
+            <h3>Elegant Ambiance</h3>
+            <p>Perfect for corporate meetings &amp; intimate celebrations.</p>
+          </div>
+        </div>
+        <div class="hero-mini-grid">
+          <div class="hero-mini"><img src="images/4b47614a-9e50-48f1-8125-f11eed06e7b7.jfif" alt="Food"/></div>
+          <div class="hero-mini"><img src="images/6c937b75-356e-45aa-b77a-545ed57e2cba.jfif" alt="Food"/></div>
+          <div class="hero-mini"><img src="images/cb8707b7-6c43-4d95-9020-c5f875eade71.jfif" alt="Food"/></div>
+          <div class="hero-mini"><img src="images/e732b600-9e14-40d8-8b08-a42a21011ab7.jfif" alt="Food"/></div>
+        </div>
+      </div>
+
+      <div class="press-badge">
+        <svg width="44" height="44" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        <div style="flex:1">
+          <div class="press-source">AS FEATURED IN · THE BOTSWANA GAZETTE</div>
+          <p class="press-quote">"A culinary gem quietly rewriting Gaborone's food narrative."</p>
+        </div>
+        <button class="btn-white" onclick="showPage('about')">OUR STORY</button>
+      </div>
+
+      <h2 class="gallery-title">EXPERIENCE GALLERY</h2>
+      <div class="masonry">
+        <div class="masonry-item"><img src="images/0a9ba333-373d-459a-8bd8-72ad97de771f.jfif" alt="Gallery"/></div>
+        <div class="masonry-item"><img src="images/7b153e55-14cf-4695-a9a1-d5d382047482.jfif" alt="Gallery"/></div>
+        <div class="masonry-item"><img src="images/25dc58e8-aed1-4141-8efb-43fb0a5a18a7.jfif" alt="Gallery"/></div>
+        <div class="masonry-item"><img src="images/909e3b5d-eddb-46c3-8eb0-71c1024f78d5 (1).jfif" alt="Gallery"/></div>
+        <div class="masonry-item"><img src="images/909e3b5d-eddb-46c3-8eb0-71c1024f78d5.jfif" alt="Gallery"/></div>
+        <div class="masonry-item"><img src="images/49132a2e-3898-4a19-a07e-595b23c5da60.jfif" alt="Gallery"/></div>
+        <div class="masonry-item"><img src="images/650483665_122197580060542183_8715317326282189181_n.jpg" alt="Gallery"/></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ MENU PAGE ═══ -->
+<div id="page-menu" class="page">
+  <section class="section">
+    <div class="container" style="max-width:800px">
+      <div style="text-align:center;margin-bottom:3rem">
+        <span class="section-tag">FUSION CUISINE</span>
+        <h2 class="section-title">OUR MENU</h2>
+        <p style="color:#777;margin-top:1rem;line-height:1.7;font-size:1rem">A symphony of local tradition and international flair. WhatsApp us for today's specials &amp; pricing.</p>
+      </div>
+      <div class="menu-tabs">
+        <button class="tab-btn active" onclick="switchTab('starters',this)">STARTERS</button>
+        <button class="tab-btn" onclick="switchTab('mains',this)">MAINS</button>
+        <button class="tab-btn" onclick="switchTab('desserts',this)">DESSERTS</button>
+      </div>
+      <div id="tab-starters" class="menu-items">
+        <div class="menu-item"><div class="menu-icon">🥟</div><div><div class="menu-name">Beef Mince Dumplings</div><div class="menu-desc">Hand-folded, pan-seared to perfection</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🧀</div><div><div class="menu-name">Broccoli Cheese Pockets</div><div class="menu-desc">Crispy pastry filled with creamy broccoli &amp; cheese</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🍄</div><div><div class="menu-name">Mushroom Bruschetta</div><div class="menu-desc">Our crowd-favourite — disappears fast</div></div><div class="menu-price">ASK STAFF</div></div>
+      </div>
+      <div id="tab-mains" class="menu-items" style="display:none">
+        <div class="menu-item"><div class="menu-icon">🍋</div><div><div class="menu-name">Lemon Chicken</div><div class="menu-desc">Zesty, aromatic — a Nam'Nati signature</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🥩</div><div><div class="menu-name">Grilled Mini-Steak</div><div class="menu-desc">With vibrant tomato &amp; cucumber salad</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🍖</div><div><div class="menu-name">Homestyle Korong in Gravy</div><div class="menu-desc">A nod to tradition at the heart of the table</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🌭</div><div><div class="menu-name">Caramelised Sausage</div><div class="menu-desc">Sweet &amp; savoury — wafting through the room</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🍠</div><div><div class="menu-name">Sweet Potato &amp; Butternut Mash</div><div class="menu-desc">Earthy sweetness, crowd favourite side</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🍗</div><div><div class="menu-name">Peri-Peri Grilled Chicken</div><div class="menu-desc">Heritage spice blend, charred to order</div></div><div class="menu-price">ASK STAFF</div></div>
+      </div>
+      <div id="tab-desserts" class="menu-items" style="display:none">
+        <div class="menu-item"><div class="menu-icon">🎂</div><div><div class="menu-name">Red Velvet Mini-Cake</div><div class="menu-desc">Served with cream</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🍫</div><div><div class="menu-name">Chocolate Mini-Cake</div><div class="menu-desc">Rich, indulgent, served with cream</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🍮</div><div><div class="menu-name">Lemon &amp; Poppy Seed Malva Pudding</div><div class="menu-desc">Zesty, nostalgic — the golden ribbon finale</div></div><div class="menu-price">ASK STAFF</div></div>
+        <div class="menu-item"><div class="menu-icon">🧁</div><div><div class="menu-name">Signature Cupcakes</div><div class="menu-desc">Seasonal flavours, beautifully decorated</div></div><div class="menu-price">ASK STAFF</div></div>
+      </div>
+      <div class="menu-cta">
+        <h3>Want today's specials or to place a catering order?</h3>
+        <p>We update our menu regularly to reflect what's fresh and in season.</p>
+        <button class="btn-white" onclick="openWA()">ASK ON WHATSAPP</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ABOUT PAGE ═══ -->
+<div id="page-about" class="page">
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-tag">OUR STORY</span>
+          <h2 class="section-title">ALL OF US,<br><span class="accent">TOGETHER.</span></h2>
+          <div style="margin-top:1.5rem">
+            <p class="body-text"><strong>Nam'Nati</strong> is a name rooted in love. Owner and visionary <strong>Unami Makali</strong> named it after her mother's affectionate nickname for her — "Unati," a Xhosa name meaning "Unami." It evolved into <em>Nam'Nati</em>, meaning <strong style="color:var(--brand)">"all of us together."</strong></p>
+            <p class="body-text" style="margin-top:1rem">Nam'Nati is a proudly local subsidiary of <strong>Kitchen Poetry</strong>, nestled in the foyer of the Letshego Building at Zambezi Towers, right in the Gaborone CBD.</p>
+            <p class="body-text" style="margin-top:1rem">More than a restaurant, it's a declaration — a space that listens, that adapts, and that brings people together over food that honours both local heritage and international flair.</p>
+            <blockquote style="margin-top:1.5rem">"We are open to critiquing so that we give our clients an outstanding culinary experience." — Unami Makali</blockquote>
+          </div>
+        </div>
+        <div class="about-img-wrap" style="padding-bottom:1.5rem">
+          <img src="images/518325328_122164699826542183_1173201489869675467_n.jpg" alt="Nam'Nati team"/>
+          <div class="about-badge">
+            <p>Kitchen Poetry</p>
+            <p>Parent brand</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon">♥</div>
+          <h4>Youth Empowerment</h4>
+          <p>Our core vision — providing skills, work, and a future for Botswana's youth in the culinary industry, especially in the face of high unemployment.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">👥</div>
+          <h4>Community First</h4>
+          <p>We collaborate with youth-run businesses like <strong>W Donuts</strong> and <strong>Kgotla</strong>, championing Botswana's next generation of business leaders.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">★</div>
+          <h4>Value for Money</h4>
+          <p>World-class fusion cuisine that's accessible. Our mission is to be a leader in the culinary industry without pricing people out.</p>
+        </div>
+      </div>
+
+      <div class="press-dark">
+        <div class="tag">PRESS · BOTSWANA GAZETTE</div>
+        <blockquote>"The engagement wasn't just a meal — it was a manifesto."</blockquote>
+        <div class="source">— Botswana Gazette, May 2025</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ LOCATION PAGE ═══ -->
+<div id="page-location" class="page">
+  <section class="section">
+    <div class="container">
+      <div class="loc-grid">
+        <div class="loc-info">
+          <span class="section-tag">FIND US</span>
+          <h2 class="section-title">ZAMBEZI<br><span class="accent">TOWERS.</span></h2>
+
+          <div class="loc-row">
+            <div class="loc-icon">
+              <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="loc-label">Address</div>
+              <div class="loc-value">Letshego Building, Foyer Area<br>Zambezi Towers<br>Gaborone CBD, Botswana</div>
+              <a href="https://maps.google.com/?q=Letshego+Building+Gaborone" target="_blank" class="loc-link">OPEN IN GOOGLE MAPS ↗</a>
+            </div>
+          </div>
+
+          <div class="loc-row">
+            <div class="loc-icon">
+              <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="loc-label">Service Hours</div>
+              <div class="hours" style="margin-top:.5rem">
+                <div class="hour-row"><span>Mon — Fri</span><strong>07:30 – 17:00</strong></div>
+                <div class="hour-row"><span>Saturday</span><strong>09:00 – 14:00</strong></div>
+                <div class="hour-row closed"><span>Sunday</span><strong>Closed</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="loc-row">
+            <div class="loc-icon">
+              <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div>
+              <div class="loc-label">Contact</div>
+              <div class="loc-value">+267 72 488 068</div>
+              <button class="loc-link" onclick="openWA()" style="background:none;padding:0;font-family:inherit">CHAT ON WHATSAPP ›</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="loc-media">
+          <div class="loc-building">
+            <img src="images/659097146_122199884252542183_3680694953633485242_n.jpg" alt="Letshego Building"/>
+          </div>
+          <div class="loc-card">
+            <img src="images/461112096_122099159036542183_7089325650912782402_n (1).jpg" alt="Logo"/>
+            <h3>"Soul on a Plate"</h3>
+            <p>Nam'Nati means <em>"all of us together"</em> — a space that unites flavour, community, and hospitality in Gaborone's most vibrant district.</p>
+            <button class="btn-white" onclick="openWA()" style="width:100%;justify-content:center">CHAT ON WHATSAPP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ CATERING PAGE ═══ -->
+<div id="page-catering" class="page">
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3.5rem">
+        <span class="section-tag">WE COME TO YOU</span>
+        <h2 class="section-title">CATERING</h2>
+        <p style="color:#777;margin-top:1rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;font-size:1rem">Soul on a plate, delivered to your event. Corporate, social, or intimate — we tailor every spread.</p>
+      </div>
+
+      <div class="packages-grid">
+        <div class="pkg-card">
+          <div class="pkg-body">
+            <div class="pkg-name">Corporate Lunch</div>
+            <div class="pkg-desc">Buffet-style service for office functions, meetings &amp; AGMs. We bring the flavour to your venue.</div>
+            <ul class="pkg-items">
+              <li>Grilled meats</li><li>Fresh salads</li><li>Sides &amp; mash</li><li>Dessert platters</li>
+            </ul>
+            <button class="btn-outline" style="width:100%;justify-content:center" onclick="openWA()">GET A QUOTE</button>
+          </div>
+        </div>
+        <div class="pkg-card featured">
+          <div class="pkg-badge">MOST POPULAR</div>
+          <div class="pkg-body">
+            <div class="pkg-name">Private Events</div>
+            <div class="pkg-desc">Birthdays, anniversaries, celebrations. Full-service catering with presentation that impresses.</div>
+            <ul class="pkg-items">
+              <li>Custom menu</li><li>Cupcake selection</li><li>Full set-up</li><li>Staff on site</li>
+            </ul>
+            <button class="btn-primary" style="width:100%;justify-content:center" onclick="openWA()">GET A QUOTE</button>
+          </div>
+        </div>
+        <div class="pkg-card">
+          <div class="pkg-body">
+            <div class="pkg-name">Supplier &amp; Board Engagements</div>
+            <div class="pkg-desc">Elegant food showcases for stakeholder events, as seen at our signature supplier engagement.</div>
+            <ul class="pkg-items">
+              <li>Starter canapés</li><li>Plated mains</li><li>Lemon Chicken signature</li><li>Malva Pudding finale</li>
+            </ul>
+            <button class="btn-outline" style="width:100%;justify-content:center" onclick="openWA()">GET A QUOTE</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-gallery">
+        <div class="cat-gallery-item"><img src="images/0a9ba333-373d-459a-8bd8-72ad97de771f.jfif" alt="Catering"/></div>
+        <div class="cat-gallery-item"><img src="images/909e3b5d-eddb-46c3-8eb0-71c1024f78d5 (1).jfif" alt="Catering"/></div>
+        <div class="cat-gallery-item"><img src="images/49132a2e-3898-4a19-a07e-595b23c5da60.jfif" alt="Catering"/></div>
+        <div class="cat-gallery-item"><img src="images/cb8707b7-6c43-4d95-9020-c5f875eade71.jfif" alt="Catering"/></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <img src="images/461112096_122099159036542183_7089325650912782402_n (1).jpg" alt="Nam'Nati"/>
+      <h4>NAM'NATI</h4>
+      <p class="footer-tagline">A Kitchen Poetry subsidiary. Empowering youth, sharing world-class fusion skills.</p>
+      <p class="footer-address">Letshego Building, Zambezi Towers, Gaborone CBD</p>
+      <div class="footer-links">
+        <button onclick="showPage('home')">HOME</button>
+        <button onclick="showPage('menu')">MENU</button>
+        <button onclick="showPage('about')">ABOUT</button>
+        <button onclick="showPage('catering')">CATERING</button>
+        <button onclick="showPage('location')">FIND US</button>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2025 NAM'NATI · KITCHEN POETRY · GABORONE</span>
+        <div class="footer-socials">
+          <a href="https://instagram.com" target="_blank">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FABS -->
+<div class="fab-group">
+  <button class="fab fab-wa" onclick="openWA()">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    CHAT
+  </button>
+  <button class="fab fab-nav" id="fab-nav-btn" onclick="toggleFabNav()">
+    <svg id="fab-icon" width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span id="fab-label">MAP</span>
+  </button>
+</div>
+
+<script>
+let currentPage = 'home';
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.querySelectorAll('.nav-links button').forEach((b,i) => {
+    const pages = ['home','menu','about','location','catering'];
+    b.classList.toggle('active', pages[i] === name);
+  });
+  currentPage = name;
+  window.scrollTo({top:0, behavior:'smooth'});
+  updateFab();
+}
+
+function updateFab() {
+  const icon = document.getElementById('fab-icon');
+  const label = document.getElementById('fab-label');
+  if (currentPage !== 'home') {
+    icon.innerHTML = '<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>';
+    label.textContent = 'HOME';
+  } else {
+    icon.innerHTML = '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>';
+    label.textContent = 'MAP';
+  }
+}
+
+function toggleFabNav() {
+  showPage(currentPage !== 'home' ? 'home' : 'location');
+}
+
+function openWA() {
+  window.open('https://wa.me/26772488068', '_blank');
+}
+
+let mobileOpen = false;
+function toggleMobile() {
+  mobileOpen = !mobileOpen;
+  document.getElementById('mobile-menu').classList.toggle('open', mobileOpen);
+}
+function closeMobile() {
+  mobileOpen = false;
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  ['starters','mains','desserts'].forEach(t => {
+    document.getElementById('tab-' + t).style.display = t === tab ? 'flex' : 'none';
+  });
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+</body>
+</html>
